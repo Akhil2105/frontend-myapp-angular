@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h3>Product List</h3>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <td>{{ p.name }}</td>
+        <td>{{ p.price | currency }}</td>
+        <td>{{ p.category }}</td>
+        <td>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="p.id !== undefined && deleteProduct(p.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
