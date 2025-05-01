@@ -1,5 +1,6 @@
 <div class="container mt-4">
-  <h3>Add Category</h3>
+  <h3>{{ isEditMode ? "Edit Category" : "Add Category" }}</h3>
+
   <form (ngSubmit)="submitCategory()">
     <div class="mb-3">
       <label>Name</label>
@@ -20,6 +21,8 @@
       />
     </div>
 
-    <button type="submit" class="btn btn-primary">Add Category</button>
+    <button class="btn btn-primary" type="submit">
+      {{ isEditMode ? "Update" : "Add" }} Category
+    </button>
   </form>
 </div>

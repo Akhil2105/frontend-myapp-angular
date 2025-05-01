@@ -11,6 +11,7 @@ export const routes: Routes = [
     { path: 'products', component: ProductListComponent },
     { path: 'add', component: ProductFormComponent },
     { path: '', redirectTo: 'products', pathMatch: 'full' },
-    { path: 'categories', component: CategoryListComponent }
+    { path: 'categories', component: CategoryListComponent },
+    { path: 'edit-category/:id', component: CategoryFormComponent },
 
 ];

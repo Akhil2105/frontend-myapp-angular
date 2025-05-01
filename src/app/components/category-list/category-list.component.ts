@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryService, Category } from '../../services/category.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-category-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './category-list.component.html',
   styleUrl: './category-list.component.css'
 })
@@ -27,5 +28,4 @@ export class CategoryListComponent implements OnInit {
       });
     }
   }
-
 }
