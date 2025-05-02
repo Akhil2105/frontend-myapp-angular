@@ -1,15 +1,24 @@
 <div class="container mt-4">
   <h3>{{ isEditMode ? "Edit Category" : "Add Category" }}</h3>
 
-  <form (ngSubmit)="submitCategory()">
+  <form #categoryForm="ngForm" (ngSubmit)="submitCategory()">
     <div class="mb-3">
       <label>Name</label>
       <input
         class="form-control"
         [(ngModel)]="category.name"
         name="name"
+        [(ngModel)]="category.name"
         required
+        #nameField="ngModel"
+        [ngClass]="{ 'is-invalid': nameField.invalid && nameField.touched }"
       />
+      <div
+        class="invalid-feedback"
+        *ngIf="nameField.invalid && nameField.touched"
+      >
+        Category name is required.
+      </div>
     </div>
 
     <div class="mb-3">

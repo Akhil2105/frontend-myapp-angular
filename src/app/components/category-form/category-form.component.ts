@@ -1,3 +1,4 @@
+import { AppComponent } from './../../app.component';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -8,12 +9,13 @@ import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-category-form',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './category-form.component.html',
-  styleUrls: ['./category-form.component.css'] // ✅ fixed plural
+  styleUrls: ['./category-form.component.css']
 })
 export class CategoryFormComponent {
   category: Category = {
@@ -25,7 +27,8 @@ export class CategoryFormComponent {
   constructor(
     private categoryService: CategoryService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private AppComponent: AppComponent
   ) {
     const id = this.route.snapshot.paramMap.get('id');
 
@@ -39,18 +42,18 @@ export class CategoryFormComponent {
 
   submitCategory() {
     if (!this.category.name) {
-      alert("Category name is required");
+      this.AppComponent.showToast("Category name is required");
       return;
     }
 
     if (this.isEditMode) {
       this.categoryService.updateCategory(this.category).subscribe(() => {
-        alert('Category updated!');
+        this.AppComponent.showToast('Category updated!');
         this.router.navigate(['/categories']);
       });
     } else {
       this.categoryService.addCategory(this.category).subscribe(() => {
-        alert('Category added!');
+        this.AppComponent.showToast('Category added!');
         this.router.navigate(['/categories']);
       });
     }
