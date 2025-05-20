@@ -1,34 +1,63 @@
-<div class="container mt-4">
-  <h3>Add Product</h3>
-  <form (ngSubmit)="submitProduct()">
-    <div class="mb-3">
-      <label>Name</label>
-      <input
-        class="form-control"
-        [(ngModel)]="product.name"
-        name="name"
-        required
-      />
-    </div>
-    <div class="mb-3">
-      <label>Price</label>
-      <input
-        type="number"
-        class="form-control"
-        [(ngModel)]="product.price"
-        name="price"
-        required
-      />
-    </div>
-    <div class="mb-3">
-      <label>Category</label>
-      <input
-        class="form-control"
-        [(ngModel)]="product.category"
-        name="category"
-        required
-      />
-    </div>
-    <button type="submit" class="btn btn-success">Add</button>
-  </form>
-</div>
+<h2>{{ isEditMode ? "Edit" : "Add" }} Product</h2>
+
+<form (ngSubmit)="submitProduct()">
+  <div class="mb-3">
+    <label>Name</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="product.name"
+      name="name"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label>Category</label>
+    <select
+      class="form-select"
+      [(ngModel)]="product.category"
+      name="category"
+      required
+    >
+      <option *ngFor="let c of categories" [ngValue]="c">{{ c.name }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label>Quantity In Stock</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="product.quantityInStock"
+      name="quantityInStock"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label>Price</label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="product.price"
+      name="price"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label>Supplier Name</label>
+    <select
+      class="form-select"
+      [(ngModel)]="product.supplier"
+      name="supplier"
+      required
+    >
+      <option *ngFor="let s of suppliers" [ngValue]="s">{{ s.name }}</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-success">Save</button>
+  <a routerLink="/products" class="btn btn-secondary">Cancel</a>
+</form>

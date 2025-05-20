@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CategoryService, Category } from '../../services/category.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from '../../app.component';
+import { Category } from '../../models/category.model';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-category-list',

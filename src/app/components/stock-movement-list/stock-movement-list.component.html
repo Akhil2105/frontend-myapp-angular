@@ -1,0 +1,20 @@
+<h2>Stock Movements</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Type</th>
+      <th>Quantity</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of movements">
+      <td>{{ m.productId }}</td>
+      <td>{{ m.type }}</td>
+      <td>{{ m.quantity }}</td>
+      <td>{{ m.timestamp | date : "short" }}</td>
+    </tr>
+  </tbody>
+</table>

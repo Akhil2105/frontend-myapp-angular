@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductService, Product } from '../../services/product.service';
+import { ProductService } from '../../services/product.service';
 import { FormsModule } from '@angular/forms';
-
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -28,7 +28,7 @@ export class ProductListComponent implements OnInit {
     this.filteredProducts = this.products.filter(p =>
       p.name.toLowerCase().includes(term) ||
       p.price.toString().includes(term) ||
-      p.category.toLowerCase().includes(term)
+      p.category?.name.toLowerCase().includes(term)
     );
   }
 

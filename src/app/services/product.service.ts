@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Product } from '../models/product.model';
 
-export interface Product {
-  id?: number;
-  name: string;
-  price: number;
-  category: string;
-
-}
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +21,12 @@ export class ProductService {
   }
   deleteProduct(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+  updateProduct(product: Product): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/${product.id}`, product);
   }
 
 }

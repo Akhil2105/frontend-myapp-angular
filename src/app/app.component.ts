@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'angular-app';
   toastVisible = false;
+  dropdownOpen = false;
+
   toastMessage = '';
 
   showToast(message: string) {
@@ -38,5 +40,6 @@ export class AppComponent {
       this.onConfirmCallback();
     }
   }
+
 
 }

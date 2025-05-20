@@ -1,16 +1,46 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">MyApp</a>
-    <div>
-      <a class="nav-link text-light" routerLink="/products">Product List</a>
-      <br />
-      <a class="nav-link text-light" routerLink="/categories">Category List</a>
-      <br />
-      <a class="nav-link text-light" routerLink="/add-category">Add Category</a>
-      <br />
-      <a class="nav-link text-light" routerLink="/add">Add Product</a>
-      <br />
-      <!-- <a class="nav-link text-light" routerLink="/add">Delete Product</a> -->
+    <div class="dropdown" [class.show]="dropdownOpen">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="inventoryDropdown"
+        (click)="dropdownOpen = !dropdownOpen"
+        [attr.aria-expanded]="dropdownOpen"
+      >
+        Manage Inventory
+      </button>
+      <ul
+        class="dropdown-menu"
+        [class.show]="dropdownOpen"
+        aria-labelledby="inventoryDropdown"
+      >
+        <li>
+          <a class="dropdown-item" routerLink="/products">Product List</a>
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/categories">Category List</a>
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/suppliers">Supplier List</a>
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/add-category">Add Category</a>
+        </li>
+        <li><a class="dropdown-item" routerLink="/add">Add Product</a></li>
+        <li>
+          <a class="dropdown-item" routerLink="/add-suppliers">Add Supplier</a>
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/movements">Stock Movements</a>
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/movements/add"
+            >Add Stock Movement</a
+          >
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

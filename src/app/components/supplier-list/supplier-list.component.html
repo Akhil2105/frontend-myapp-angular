@@ -1,0 +1,42 @@
+<h2>Suppliers</h2>
+
+<input
+  type="text"
+  class="form-control mb-3"
+  [(ngModel)]="searchTerm"
+  (input)="onSearch()"
+  placeholder="Search suppliers..."
+/>
+
+<a routerLink="/suppliers/add" class="btn btn-primary mb-3">Add Supplier</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of filteredSuppliers">
+      <td>{{ s.name }}</td>
+      <td>{{ s.email }}</td>
+      <td>{{ s.phone }}</td>
+      <td>
+        <a
+          [routerLink]="['/suppliers/edit', s.id]"
+          class="btn btn-sm btn-info me-2"
+          >Edit</a
+        >
+        <button
+          class="btn btn-sm btn-danger"
+          (click)="s.id != undefined && deleteSupplier(s.id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

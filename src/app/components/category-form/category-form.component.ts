@@ -2,11 +2,12 @@ import { AppComponent } from './../../app.component';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CategoryService, Category } from '../../services/category.service';
+import { CategoryService } from '../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Category } from '../../models/category.model';
 
 
 
